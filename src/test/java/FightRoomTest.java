@@ -30,8 +30,8 @@ public class FightRoomTest {
         cleric = new Cleric("U", 20);
         axe = new Axe("Axe",20);
         sword = new Sword("Sword", 30);
-        orc = new Orc("Orc",false,20);
-        troll = new Troll("Orc",false,20);
+        orc = new Orc("Orc",false,20,7);
+        troll = new Troll("Orc",false,20,5);
         barbarian.addWeapon(axe);
         barbarian.addWeapon(sword);
         players.add(barbarian);

@@ -13,12 +13,16 @@ public abstract class Creature implements IFightable, IHealable {
         this.name = name;
         this.friendly = friendly;
         this.healthPoint= healthPoint;
-        this.attack = attack; 
+        this.attack = attack;
 
     }
 
     public int getHealthPoint() {
         return healthPoint;
+    }
+
+    public int getAttack() {
+        return attack;
     }
 
     public void setHealthPoint(int healthPoint) {
@@ -30,6 +34,7 @@ public abstract class Creature implements IFightable, IHealable {
     };
 
     public void attack(IFightable fightable){
-      int damage =
+      int damage = this.attack;
+      fightable.takeDamage(damage);
     }
 }
