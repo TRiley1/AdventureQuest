@@ -31,8 +31,10 @@ public class Warlock extends Fighter {
     }
 
     public void takeDamage(int damage) {
-        if (damage >= this.selectedCreature.getHealthPoint()) {
-            this.setHealthPoint((this.getHealthPoint() - (damage - this.selectedCreature.getHealthPoint())));
+        int creatureHealth = this.selectedCreature.getHealthPoint();
+        int warlockHealth = this.getHealthPoint();
+        if (damage >= creatureHealth) {
+            this.setHealthPoint((warlockHealth - (damage - creatureHealth)));
         }
         this.selectedCreature.takeDamage(damage);
     }
