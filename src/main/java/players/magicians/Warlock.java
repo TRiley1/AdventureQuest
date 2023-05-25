@@ -2,10 +2,11 @@ package players.magicians;
 
 import players.Player;
 import players.creatures.Creature;
+import players.fighters.Fighter;
 
 import java.util.ArrayList;
 
-public class Warlock extends Player {
+public class Warlock extends Fighter {
 
     private ArrayList<Creature> creatures;
     private Creature selectedCreature;
@@ -29,4 +30,10 @@ public class Warlock extends Player {
         return selectedCreature;
     }
 
+    public void takeDamage(int damage) {
+        if (damage >= this.selectedCreature.getHealthPoint()) {
+            this.setHealthPoint((this.getHealthPoint() - (damage - this.selectedCreature.getHealthPoint())));
+        }
+        this.selectedCreature.takeDamage(damage);
+    }
 }

@@ -18,6 +18,7 @@ public abstract class Fighter extends Player implements IFightable {
     }
 
     public void takeDamage(int damage) {
+
         this.setHealthPoint(this.getHealthPoint() - damage);
     }
 

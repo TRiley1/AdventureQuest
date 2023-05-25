@@ -14,8 +14,9 @@ public class ClericTest {
     @Before
     public void setUp() {
         cleric = new Cleric("Toby", 100);
-        orc = new Orc("H", true,10);
-        knight = new Knight("Keith",100);
+        orc = new Orc("H", true,10, 20);
+        knight = new Knight("Keith",100,50);
+
 
     }
     @Test

@@ -22,17 +22,15 @@ public abstract class Player implements IHealable{
     public ArrayList<Weapon> getWeapons() {
         return weapons;
     }
+
     public void addWeapon(Weapon weapon) {
         getWeapons().add(weapon);
-    }
-
-    public Weapon holdWeapon() {
-        return holdWeapon;
     }
 
     public Weapon getHoldWeapon() {
         return holdWeapon;
     }
+
     public void selectWeapon(int num){
         this.holdWeapon = weapons.get(num);
     }

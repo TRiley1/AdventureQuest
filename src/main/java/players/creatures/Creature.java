@@ -30,6 +30,7 @@ public abstract class Creature implements IFightable, IHealable {
     }
 
     public void takeDamage(int damage){
+
         this.healthPoint -= damage;
     };
 

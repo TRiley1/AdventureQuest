@@ -23,7 +23,6 @@ public class FightRoomTest {
     ArrayList<Player>players;
     ArrayList<Creature>creatures;
 
-
     @Before
     public void setUp(){
         barbarian = new Barbarian("H",100);
@@ -38,11 +37,9 @@ public class FightRoomTest {
         players.add(cleric);
         creatures.add(orc);
         creatures.add(troll);
-
         fightRoom = new FightRoom(players,"E63",creatures);
     }
 
-    @Test
-    public void
+
 
 }
