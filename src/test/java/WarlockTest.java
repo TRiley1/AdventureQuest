@@ -8,7 +8,7 @@ import players.magicians.Warlock;
 import players.weapons.Sword;
 import players.weapons.Wand;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class WarlockTest {
 
@@ -44,7 +44,8 @@ public class WarlockTest {
         this.warlock.setSelectedCreature(0);
         this.barbarian.attack(warlock);
         assertEquals(10, warlock.getHealthPoint());
-        assertEquals(-40, dragon.getHealthPoint());
+        assertFalse(dragon.isAlive());
+        assertNull(warlock.getSelectedCreature());
     }
 
     @Test
