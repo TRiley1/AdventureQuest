@@ -31,11 +31,22 @@ public class Warlock extends Fighter {
     }
 
     public void takeDamage(int damage) {
-        int creatureHealth = this.selectedCreature.getHealthPoint();
+
         int warlockHealth = this.getHealthPoint();
-        if (damage >= creatureHealth) {
-            this.setHealthPoint((warlockHealth - (damage - creatureHealth)));
+
+        if(selectedCreature != null){
+            int creatureHealth = this.selectedCreature.getHealthPoint();
+
+            if (damage >= creatureHealth) {
+                this.setHealthPoint((warlockHealth - (damage - creatureHealth)));
+            }
+            this.selectedCreature.takeDamage(damage);
         }
-        this.selectedCreature.takeDamage(damage);
+        else {
+            this.setHealthPoint(warlockHealth - damage);
+        }
+
+//        next step is to consider when the creature is killed. We need to set creature to dead
+//        and set selected creature to null.
     }
 }

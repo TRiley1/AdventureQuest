@@ -28,6 +28,8 @@ public class WarlockTest {
         ogre = new Ogre("Ogre",  true, 60,20);
         wand = new Wand("Wand",10);
         sword = new Sword("sword",90);
+        this.barbarian.addWeapon(sword);
+        this.barbarian.selectWeapon(0);
     }
     @Test
     public void canSelectCreature(){
@@ -38,8 +40,6 @@ public class WarlockTest {
     }
     @Test
     public void creatureCanDefendThenDieThenWarlockGetHurt(){
-        this.barbarian.addWeapon(sword);
-        this.barbarian.selectWeapon(0);
         this.warlock.getCreatures().add(dragon);
         this.warlock.setSelectedCreature(0);
         this.barbarian.attack(warlock);
@@ -50,11 +50,17 @@ public class WarlockTest {
     @Test
     public void creatureStillAlive(){
         this.barbarian.addWeapon(wand);
-        this.barbarian.selectWeapon(0);
+        this.barbarian.selectWeapon(1);
         this.warlock.getCreatures().add(dragon);
         this.warlock.setSelectedCreature(0);
         this.barbarian.attack(warlock);
         assertEquals(40, dragon.getHealthPoint());
         assertEquals(50, warlock.getHealthPoint());
+    }
+
+    @Test
+    public void warlockTakesFullDamageWhenNoCreatureSelected(){
+        this.barbarian.attack(warlock);
+        assertEquals(-40, warlock.getHealthPoint());
     }
 }
